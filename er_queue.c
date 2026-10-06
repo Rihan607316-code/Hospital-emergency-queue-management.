@@ -13,17 +13,17 @@
 typedef enum { BOOKED, WAITING, IN_TREATMENT } Status;
 
 typedef struct {
-    int    id;                      /* internal numeric id */
-    char   patient_id[PID_LEN];     /* formatted, e.g. "PT0001" */
+    int    id;                      
+    char   patient_id[PID_LEN];     
     char   name[NAME_LEN];
-    int    age;                     /* -1 if not provided */
+    int    age;                     
     char   complaint[COMPLAINT_LEN];
-    int    esi_level;               /* 0 = not yet triaged (pre-arrival booking), 1..5 after */
+    int    esi_level;               
     Status status;
-    time_t arrived;                 /* set at check-in / walk-in registration */
-    time_t treat_start;             /* valid once status == IN_TREATMENT */
-    char   appt_note[APPT_NOTE_LEN];/* preferred date/time, for BOOKED patients */
-    int    paid;                    /* 0 = unpaid, 1 = paid */
+    time_t arrived;                 
+    time_t treat_start;             
+    char   appt_note[APPT_NOTE_LEN];
+    int    paid;                    
     double amount_due;
     char   payment_method[METHOD_LEN];
 } Patient;
